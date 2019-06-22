@@ -1,0 +1,73 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <UsingToolVsSDK>true</UsingToolVsSDK>
+    <GeneratePkgDefFile>true</GeneratePkgDefFile>
+    <CreateVsixContainer>false</CreateVsixContainer>
+    <RootNamespace>Microsoft.VisualStudio</RootNamespace>
+    <AssemblyName>Microsoft.VisualStudio.Restart</AssemblyName>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+  
+  <Sdk Name="Microsoft.NET.Sdk" />
+
+  <PropertyGroup>
+    <IsVSPackageProject>true</IsVSPackageProject>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="Commands\MenuCommandGenerator.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MenuCommandGenerator.tt</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <VSCTCompile Include="Commands\CommandTable.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
+    </VSCTCompile>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Update="VSPackage.resx">
+      <Generator></Generator>
+      <MergeWithCTO>true</MergeWithCTO>
+      <ManifestResourceName>VSPackage</ManifestResourceName>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="Commands\MenuCommandGenerator.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MenuCommandGenerator.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="Commands\MenuCommandGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MenuCommandGenerator.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+</Project>

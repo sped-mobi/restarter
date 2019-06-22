@@ -1,0 +1,33 @@
+﻿<Project>
+  <PropertyGroup>
+    <UsingToolVsSDK>true</UsingToolVsSDK>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>VisualStudioRestarter.vsix</AssemblyName>
+    <RootNamespace>VisualStudioRestarter.vsix</RootNamespace>
+    <TargetVsixContainerName>VisualStudioRestarter.vsix</TargetVsixContainerName>
+  </PropertyGroup>
+  <Sdk Name="Microsoft.NET.Sdk" />
+  <PropertyGroup>
+    <IsVsixProject>true</IsVsixProject>
+  </PropertyGroup>
+  <ItemGroup>   
+    <None Remove="License.txt" />
+    <None Remove="Restart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="source.extension.vsixmanifest" SubType="Designer" CodeGenerator="" />
+    <Content Include="License.txt" IncludeInVsix="true" CopyToOutputDirectory="Always" />
+    <Content Include="Restart.png" IncludeInVsix="true" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.VisualStudio.Restart\Microsoft.VisualStudio.Restart.csproj">
+      <Name>Microsoft.VisualStudio.Restart</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3bPkgdefProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+</Project>
+

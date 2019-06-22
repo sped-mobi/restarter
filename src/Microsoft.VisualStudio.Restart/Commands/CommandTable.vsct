@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+  <Extern href="KnownImageIds.vsct" />
+
+  <Commands package="Package">
+    <Menus>
+      <Menu guid="PackageMenus" id="IDM_RESTART" type="Menu" priority="0x0000">
+        <Strings>
+          <ButtonText>Restart</ButtonText>
+        </Strings>
+      </Menu>
+    </Menus>
+    <Groups>
+      <Group guid="PackageGroups" id="IDG_RESTART" priority="0x0000"/>
+    </Groups>
+    <Buttons>
+      <Button guid="PackageCommands" id="RestartCommand" type="Button" priority="0x0000">
+        <Icon guid="ImageCatalogGuid" id="Restart"/>
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>IconAndText</CommandFlag>
+        <Strings>
+          <ButtonText>Restart</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="PackageCommands" id="RestartElevatedCommand" type="Button" priority="0x0000">
+        <Icon guid="ImageCatalogGuid" id="Restart"/>
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>IconAndText</CommandFlag>
+        <Strings>
+          <ButtonText>Restart &amp;Elevated</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+  <CommandPlacements>
+    <CommandPlacement guid="PackageCommands" id="RestartCommand" priority="0x0001">
+      <Parent guid="PackageGroups" id="IDG_RESTART"/>
+    </CommandPlacement>
+    <CommandPlacement guid="PackageCommands" id="RestartElevatedCommand" priority="0x0002">
+      <Parent guid="PackageGroups" id="IDG_RESTART"/>
+    </CommandPlacement>
+
+    <CommandPlacement guid="PackageGroups" id="IDG_RESTART" priority="0x0001">
+      <Parent guid="PackageMenus" id="IDM_RESTART"/>
+    </CommandPlacement>
+
+    <CommandPlacement guid="PackageMenus" id="IDM_RESTART" priority="0x0800">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS"/>
+    </CommandPlacement>
+  </CommandPlacements>
+
+  <Symbols>
+    <GuidSymbol name="Package" value="{8CA8D2A2-183B-4E91-BAA4-DAC042395F00}" />
+    <GuidSymbol name="PackageMenus" value="{03B0E9DA-6932-4A4D-8319-9EB154D0A223}">
+      <IDSymbol name="IDM_RESTART" value="0x0101"/>
+    </GuidSymbol>
+    <GuidSymbol name="PackageGroups" value="{7CC0649F-425A-4973-9BB2-4F40A7BE4B22}">
+      <IDSymbol name="IDG_RESTART" value="0x0011"/>
+    </GuidSymbol>
+    <GuidSymbol name="PackageCommands" value="{BED49801-D15C-469D-9501-EE82C6B590D6}">
+      <IDSymbol name="RestartCommand" value="0x0001"/>
+      <IDSymbol name="RestartElevatedCommand" value="0x0002"/>
+    </GuidSymbol>
+  </Symbols>
+  
+  
+</CommandTable>
